@@ -1,0 +1,35 @@
+{% extends "Components/Layout.twig" %}
+
+{% block title %} Welcome {% endblock %}
+
+{% block css %}
+  {{ resource("Css/Layout/Views/Index.css") }}
+{% endblock %}
+
+{% block slot %}
+
+  <main id="main_slot">
+    <section class="brand-introduction">
+      <div class="scaled-brand-logo">
+        {% include "Components/Brands/MVCLite/NormalLogo.twig" %}
+      </div>
+
+      <p class="brand-slogan">
+        Lightweight but comprehensive.
+      </p>
+    </section>
+
+    <section class="actions">
+      <button class="button-primary">
+        <ion-icon name="school" size="large"></ion-icon>
+        Learn
+      </button>
+
+      <button class="button-secondary">
+        <ion-icon name="file-tray-full" size="large"></ion-icon>
+        Read the docs
+      </button>
+    </section>
+  </main>
+
+{% endblock %}
