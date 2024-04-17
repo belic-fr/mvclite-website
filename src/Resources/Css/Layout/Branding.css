@@ -1,0 +1,52 @@
+.font-base {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-title, .logo {
+  font-family: "Krona One", sans-serif;
+}
+
+.font-code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+button {
+  @apply flex items-center gap-x-2;
+  padding: 12px 20px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+}
+button.button-primary {
+  background-color: #00D1FF;
+  color: #FFFFFF;
+}
+button.button-secondary {
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+}
+
+#app {
+  @apply flex flex-col min-h-screen select-none cursor-default;
+}
+#app > .slot-container {
+  @apply flex-1 flex;
+}
+#app > .slot-container > aside#left_side_slot {
+  @apply flex-none;
+  background-color: #222222;
+}
+#app > .slot-container > main#main_slot {
+  @apply flex-1;
+  background-color: #282828;
+}
+
+.logo > span.primary {
+  color: #FFFFFF;
+  font-size: 40px;
+}
+.logo > span.secondary {
+  color: #00D1FF;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=Branding.css.map */

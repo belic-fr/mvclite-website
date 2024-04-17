@@ -1,0 +1,72 @@
+.font-base {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-title, header#main_header nav#main_navbar > a.link {
+  font-family: "Krona One", sans-serif;
+}
+
+.font-code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+button {
+  @apply flex items-center gap-x-2;
+  padding: 12px 20px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+}
+button.button-primary {
+  background-color: #00D1FF;
+  color: #FFFFFF;
+}
+button.button-secondary {
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+}
+
+#app {
+  @apply flex flex-col min-h-screen select-none cursor-default;
+}
+#app > .slot-container {
+  @apply flex-1 flex;
+}
+#app > .slot-container > aside#left_side_slot {
+  @apply flex-none;
+  background-color: #222222;
+}
+#app > .slot-container > main#main_slot {
+  @apply flex-1;
+  background-color: #282828;
+}
+
+header#main_header {
+  @apply h-[100px] shadow-md flex items-center gap-x-20 px-10 relative;
+  background-color: #1F1F1F;
+}
+header#main_header > .brand-gradient {
+  @apply absolute z-0 left-0 inset-y-0 w-[320px];
+  background-image: linear-gradient(to right, #004475, #1F1F1F);
+}
+header#main_header > .logo {
+  @apply relative z-10 flex-none;
+}
+header#main_header nav#main_navbar {
+  @apply flex gap-x-14 flex-1 items-center;
+}
+header#main_header nav#main_navbar > a.link {
+  @apply flex gap-x-3 items-center;
+  color: #00D1FF;
+}
+header#main_header nav#main_navbar > a.link:hover {
+  opacity: 0.7;
+}
+header#main_header nav#main_navbar > a.link:active {
+  opacity: 0.5;
+}
+header#main_header nav#main_navbar > a.link > span.link-label {
+  font-size: 15px;
+  color: #FFFFFF;
+}
+
+/*# sourceMappingURL=Header.css.map */

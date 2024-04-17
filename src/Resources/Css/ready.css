@@ -1,24 +1,190 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kaushan+Script&display=swap");
-
-/* @import "PATH_TO_TAILWIND_CSS_FILES"; */
-
-#main{
-  margin: 4rem;
+.font-base {
+  font-family: "Montserrat", sans-serif;
 }
 
-#main h1{
-  margin-bottom: 2.5rem;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  font-weight: 700;
+.font-title, header#main_header nav#main_navbar > a.link {
+  font-family: "Krona One", sans-serif;
 }
 
-#main p.count{
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.font-code {
+  font-family: "JetBrains Mono", monospace;
 }
 
-/* ! tailwindcss v3.3.6 | MIT License | https://tailwindcss.com */
+button {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  padding: 12px 20px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+}
+
+button.button-primary {
+  background-color: #00D1FF;
+  color: #FFFFFF;
+}
+
+button.button-secondary {
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+}
+
+#app {
+  display: flex;
+  min-height: 100vh;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  flex-direction: column;
+}
+
+#app > .slot-container {
+  display: flex;
+  flex: 1 1 0%;
+}
+
+#app > .slot-container > aside#left_side_slot {
+  flex: none;
+  background-color: #222222;
+}
+
+#app > .slot-container > main#main_slot {
+  flex: 1 1 0%;
+  background-color: #282828;
+}
+
+header#main_header {
+  position: relative;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: #1F1F1F;
+}
+
+header#main_header > .brand-gradient {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 0;
+  width: 320px;
+  background-image: linear-gradient(to right, #004475, #1F1F1F);
+}
+
+header#main_header > .logo {
+  position: relative;
+  z-index: 10;
+  flex: none;
+}
+
+header#main_header nav#main_navbar {
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  -moz-column-gap: 3.5rem;
+       column-gap: 3.5rem;
+}
+
+header#main_header nav#main_navbar > a.link {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+  color: #00D1FF;
+}
+
+header#main_header nav#main_navbar > a.link:hover {
+  opacity: 0.7;
+}
+
+header#main_header nav#main_navbar > a.link:active {
+  opacity: 0.5;
+}
+
+header#main_header nav#main_navbar > a.link > span.link-label {
+  font-size: 15px;
+  color: #FFFFFF;
+}
+
+.font-base {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-title, .logo {
+  font-family: "Krona One", sans-serif;
+}
+
+.font-code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  padding: 12px 20px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+}
+
+button.button-primary {
+  background-color: #00D1FF;
+  color: #FFFFFF;
+}
+
+button.button-secondary {
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+}
+
+#app {
+  display: flex;
+  min-height: 100vh;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  flex-direction: column;
+}
+
+#app > .slot-container {
+  display: flex;
+  flex: 1 1 0%;
+}
+
+#app > .slot-container > aside#left_side_slot {
+  flex: none;
+  background-color: #222222;
+}
+
+#app > .slot-container > main#main_slot {
+  flex: 1 1 0%;
+  background-color: #282828;
+}
+
+.logo > span.primary {
+  color: #FFFFFF;
+  font-size: 40px;
+}
+
+.logo > span.secondary {
+  color: #00D1FF;
+  font-size: 20px;
+}
+
+/*
+! tailwindcss v3.3.6 | MIT License | https://tailwindcss.com
+*/
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -459,10 +625,10 @@ video {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-*, ::before, ::after{
+*, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -512,7 +678,7 @@ body {
   --tw-backdrop-sepia:  ;
 }
 
-::backdrop{
+::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -564,68 +730,187 @@ body {
 
 /* None components. */
 
-.visible{
+.visible {
   visibility: visible;
 }
 
-.collapse{
+.collapse {
   visibility: collapse;
 }
 
-.static{
+.static {
   position: static;
 }
 
-.relative{
+.absolute {
+  position: absolute;
+}
+
+.relative {
   position: relative;
 }
 
-.block{
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.block {
   display: block;
 }
 
-.table{
+.flex {
+  display: flex;
+}
+
+.table {
   display: table;
 }
 
-.contents{
+.contents {
   display: contents;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.border-collapse{
+.h-\[100px\] {
+  height: 100px;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.w-\[320px\] {
+  width: 320px;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.border-collapse {
   border-collapse: collapse;
 }
 
-.transform{
+.transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.resize{
+.select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.resize {
   resize: both;
 }
 
-.border{
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+}
+
+.gap-x-10 {
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+
+.gap-x-14 {
+  -moz-column-gap: 3.5rem;
+       column-gap: 3.5rem;
+}
+
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+
+.gap-x-20 {
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+}
+
+.gap-x-3 {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+}
+
+.gap-x-5 {
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.border {
   border-width: 1px;
 }
 
-.text-4xl{
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
 
-.font-bold{
+.font-bold {
   font-weight: 700;
 }
 
-.underline{
+.underline {
   text-decoration-line: underline;
 }
 
-.outline{
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline {
   outline-style: solid;
 }
 /*# sourceMappingURL=ready.css.map */

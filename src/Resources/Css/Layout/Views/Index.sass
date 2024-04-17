@@ -1,0 +1,28 @@
+@import "../Layout"
+
+main#main_slot
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-around
+
+  > section
+    &.brand-introduction
+      display: flex
+      flex-direction: column
+      align-items: center
+
+      > .scaled-brand-logo
+        span.primary
+          font-size: 130px
+
+        span.secondary
+          font-size: 60px
+
+      > .brand-slogan
+        font-size: 30px
+        color: $fontColor-brand
+
+    &.actions
+      display: flex
+      column-gap: 10px

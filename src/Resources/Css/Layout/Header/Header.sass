@@ -1,0 +1,32 @@
+@import "../Layout"
+
+header#main_header
+  @apply h-[100px] shadow-md flex items-center gap-x-20 px-10 relative
+
+  > .brand-gradient
+    @apply absolute z-0 left-0 inset-y-0 w-[320px]
+    background-image: linear-gradient(to right, #004475, $primary-background)
+
+  > .logo
+    @apply relative z-10 flex-none
+
+  nav#main_navbar
+    @apply flex gap-x-14 flex-1 items-center
+
+    > a.link
+      @extend .font-title
+      @apply flex gap-x-3 items-center
+      color: $primary-brand
+
+      &:hover
+        opacity: .7
+
+      &:active
+        opacity: .5
+
+      > span.link-label
+        font-size: 15px
+        color: $secondary-brand
+
+
+  background-color: $primary-background

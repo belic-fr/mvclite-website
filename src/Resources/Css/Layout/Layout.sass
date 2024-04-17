@@ -1,0 +1,52 @@
+$primary-background:    #1F1F1F
+$secondary-background:  #222222
+$third-background:      #282828
+
+$primary-brand:         #00D1FF
+$secondary-brand:       #FFFFFF
+$fontColor-brand:       #4B4B4B
+
+$primary-button:        #0094FF
+
+
+//  Fonts
+.font-base
+  font-family: "Montserrat", sans-serif
+
+.font-title
+  font-family: "Krona One", sans-serif
+
+.font-code
+  font-family: "JetBrains Mono", monospace
+
+
+//  Components
+button
+  @apply flex items-center gap-x-2
+  padding: 12px 20px !important
+  border-radius: 4px !important
+  font-weight: 600 !important
+
+  &.button-primary
+    background-color: $primary-brand
+    color: $secondary-brand
+
+  &.button-secondary
+    background-color: $secondary-brand
+    color: $primary-background
+
+
+//  Layout
+#app
+  @apply flex flex-col min-h-screen select-none cursor-default
+
+  > .slot-container
+    @apply flex-1 flex
+
+    > aside#left_side_slot
+      @apply flex-none
+      background-color: $secondary-background
+
+    > main#main_slot
+      @apply flex-1
+      background-color: $third-background
