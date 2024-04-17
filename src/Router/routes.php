@@ -6,6 +6,7 @@
  */
 
 
+use MvcLite\Controllers\IndexController;
 use MvcliteCore\Router\Router;
 
-// Create your own routes!
+Router::get("/", IndexController::class, "render");
