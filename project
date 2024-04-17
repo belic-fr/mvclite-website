@@ -1,0 +1,301 @@
+<?php
+
+require_once "vendor/autoload.php";
+
+require_once "config.php";
+
+const CONTROLLER_TEMPLATE = "<?php
+
+namespace MvcLite\Controllers%s;
+
+use MvcliteCore\Controllers\Controller;
+use MvcliteCore\Router\Request;
+use MvcliteCore\Views\View;
+
+class %s extends Controller
+{
+    public function __construct() 
+    {
+        parent::__construct();
+    }
+    
+    public function render(): void
+    {
+        View::render(\"View\", [
+            //
+        ]);
+    }
+}";
+
+const MODEL_TEMPLATE = "<?php
+
+namespace MvcLite\Models%s;
+
+use MvcliteCore\Models\Model;
+class %s extends Model
+{
+    public function __construct() 
+    {
+        parent::__construct();
+    }
+}";
+
+const VALIDATOR_TEMPLATE = '<?php
+
+namespace MvcLite\Validators%s;
+
+use MvcliteCore\Engine\Security\Validator;
+use MvcliteCore\Router\Request;
+
+class %s extends Validator
+{
+    public function __construct(Request $request) 
+    {
+        parent::__construct($request);
+    }
+    
+    public function rule(string $input, ?string $customError = null): %s
+    {
+        $defaultError = "This is the default error.";
+        
+        $hasFailed = 1 == 2;
+        
+        if ($hasFailed)
+        {
+            $this->addError("rule", $input, $customError ?? $defaultError);
+        }
+        
+        return $this;
+    }
+}';
+
+if ($argc < 2)
+{
+    errorNoneInstruction();
+}
+
+$instruction = $argv[1];
+
+switch ($instruction)
+{
+    case "new:controller":  //  php project new:controller MyController
+        newConstructor();
+        die;
+
+    case "new:model":       //  php project new:model MyModel
+        newModel();
+        die;
+
+    case "new:validator":   //  php project new:validator MyValidator
+        newValidator();
+        die;
+
+    case "db:migrate":      //  php project db:migrate
+        migrate();
+        break;
+
+    default:
+        die;
+}
+
+function newConstructor(): void
+{
+    global $argc, $argv;
+
+    if ($argc < 3)
+    {
+        errorNoneControllerName();
+    }
+
+    $controllerName = $argv[2];
+    $controllerSubpathSplit = explode('/', $controllerName);
+    $controllerFilenameSubPath
+        = implode('/', array_slice($controllerSubpathSplit, 0, -1));
+    $controllerFilenameSubPathWithBackslashes = count($controllerSubpathSplit) > 1
+        ? '\\'
+        : '';
+    $controllerFilenameSubPathWithBackslashes
+        .= str_replace('/', '\\', $controllerFilenameSubPath);
+    $controllerFilenameWithoutExtension = end($controllerSubpathSplit);
+    $controllerParentPath = "src/Controllers/$controllerFilenameSubPath";
+    $controllerFilename = "$controllerFilenameWithoutExtension.php";
+
+    if (!is_dir($controllerParentPath) && !mkdir($controllerParentPath, recursive: true))
+    {
+        errorCannotCreateController($controllerName);
+    }
+
+    $controller = fopen($controllerParentPath . '/' . $controllerFilename, 'w');
+    $controllerContent = sprintf(CONTROLLER_TEMPLATE,
+                                 $controllerFilenameSubPathWithBackslashes,
+                                 $controllerFilenameWithoutExtension);
+
+    if (!$controller || fwrite($controller, $controllerContent) === false)
+    {
+        errorCannotCreateController($controllerName);
+    }
+
+    fclose($controller);
+
+    echo "$controllerName controller successfully created.";
+    die;
+}
+
+function newModel(): void
+{
+    global $argc, $argv;
+
+    if ($argc < 3)
+    {
+        errorNoneModelName();
+    }
+
+    $modelName = $argv[2];
+    $modelSubpathSplit = explode('/', $modelName);
+    $modelFilenameSubPath
+        = implode('/', array_slice($modelSubpathSplit, 0, -1));
+    $modelFilenameSubPathWithBackslashes = count($modelSubpathSplit) > 1
+        ? '\\'
+        : '';
+    $modelFilenameSubPathWithBackslashes
+        .= str_replace('/', '\\', $modelFilenameSubPath);
+    $modelFilenameWithoutExtension = end($modelSubpathSplit);
+    $modelParentPath = "src/Models/$modelFilenameSubPath";
+    $modelFilename = "$modelFilenameWithoutExtension.php";
+
+    if (!is_dir($modelParentPath) && !mkdir($modelParentPath, recursive: true))
+    {
+        errorCannotCreateModel($modelName);
+    }
+
+    $model = fopen($modelParentPath . '/' . $modelFilename, 'w');
+    $modelContent = sprintf(MODEL_TEMPLATE,
+                            $modelFilenameSubPathWithBackslashes,
+                            $modelFilenameWithoutExtension);
+
+    if (!$model || fwrite($model, $modelContent) === false)
+    {
+        errorCannotCreateModel($modelName);
+    }
+
+    fclose($model);
+
+    echo "$modelName model successfully created.";
+    die;
+}
+
+function newValidator(): void
+{
+    global $argc, $argv;
+
+    if ($argc < 3)
+    {
+        errorNoneValidatorName();
+    }
+
+    $validatorName = $argv[2];
+    $validatorSubpathSplit = explode('/', $validatorName);
+    $validatorFilenameSubPath
+        = implode('/', array_slice($validatorSubpathSplit, 0, -1));
+    $validatorFilenameSubPathWithBackslashes = count($validatorSubpathSplit) > 1
+        ? '\\'
+        : '';
+    $validatorFilenameSubPathWithBackslashes
+        .= str_replace('/', '\\', $validatorFilenameSubPath);
+    $validatorFilenameWithoutExtension = end($validatorSubpathSplit);
+    $validatorParentPath = "src/Validators/$validatorFilenameSubPath";
+    $validatorFilename = "$validatorFilenameWithoutExtension.php";
+
+    if (!is_dir($validatorParentPath) && !mkdir($validatorParentPath, recursive: true))
+    {
+        errorCannotCreateValidator($validatorName);
+    }
+
+    $validator = fopen($validatorParentPath . '/' . $validatorFilename, 'w');
+    $validatorContent = sprintf(VALIDATOR_TEMPLATE,
+                            $validatorFilenameSubPathWithBackslashes,
+                            $validatorFilenameWithoutExtension,
+                            $validatorFilenameWithoutExtension);
+
+    if (!$validator || fwrite($validator, $validatorContent) === false)
+    {
+        errorCannotCreateValidator($validatorName);
+    }
+
+    fclose($validator);
+
+    echo "$validatorName validator successfully created.";
+    die;
+}
+
+function migrate(): void
+{
+    useDatabase();
+
+    define("MIGRATIONS_FOLDER", "src/Database/Migrations/");
+
+    $migrationFiles = scandir(MIGRATIONS_FOLDER);
+
+    if (count($migrationFiles) < 3)
+    {
+        return;
+    }
+
+    $migrationFiles = array_slice($migrationFiles, 2);
+
+    foreach ($migrationFiles as $element)
+    {
+        $elementPath = MIGRATIONS_FOLDER . $element;
+
+        include $elementPath;
+    }
+}
+
+/* ===  ERRORS  === */
+
+function errorCannotCreateController(string $controllerName): void
+{
+    echo "[ERROR] $controllerName controller cannot be created.";
+    die;
+}
+
+function errorNoneControllerName()
+{
+    echo "[ERROR] No name has been given for the controller to be created.";
+    die;
+}
+
+function errorCannotCreateModel(string $modelName): void
+{
+    echo "[ERROR] $modelName model cannot be created.";
+    die;
+}
+
+function errorNoneModelName()
+{
+    echo "[ERROR] No name has been given for the model to be created.";
+    die;
+}
+
+function errorNoneValidatorName()
+{
+    echo "[ERROR] No name has been given for the validator to be created.";
+    die;
+}
+
+function errorCannotCreateValidator(string $validatorName): void
+{
+    echo "[ERROR] $validatorName validator cannot be created.";
+    die;
+}
+
+function errorNoneInstruction()
+{
+    echo "[ERROR] None instruction is given.";
+    die;
+}
+
+function useDatabase()
+{
+    require_once "src/Database/connection.php";
+}
