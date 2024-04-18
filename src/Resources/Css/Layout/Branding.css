@@ -11,13 +11,19 @@
 }
 
 button {
-  @apply flex items-center gap-x-2;
+  @apply flex items-center gap-x-2 transition-all;
   padding: 12px 20px !important;
   border-radius: 4px !important;
   font-weight: 600 !important;
 }
+button:hover {
+  @apply cursor-pointer opacity-70;
+}
+button:active {
+  @apply scale-95 opacity-50;
+}
 button.button-primary {
-  background-color: #00D1FF;
+  background-color: #0094FF;
   color: #FFFFFF;
 }
 button.button-secondary {
@@ -25,14 +31,24 @@ button.button-secondary {
   color: #1F1F1F;
 }
 
+a {
+  color: #00D1FF !important;
+}
+a:hover {
+  opacity: 0.7;
+}
+a:active {
+  opacity: 0.5;
+}
+
 #app {
   @apply flex flex-col min-h-screen select-none cursor-default;
 }
 #app > .slot-container {
-  @apply flex-1 flex;
+  @apply flex-1 flex flex-col xl:flex-row;
 }
 #app > .slot-container > aside#left_side_slot {
-  @apply flex-none;
+  @apply flex-none xl:w-96;
   background-color: #222222;
 }
 #app > .slot-container > main#main_slot {
