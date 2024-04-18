@@ -140,7 +140,7 @@ header#main_header > .brand-gradient {
   @apply absolute z-0 left-0 inset-y-0 w-[320px];
   background-image: linear-gradient(to right, #004475, #1F1F1F);
 }
-header#main_header > .logo {
+header#main_header .logo {
   @apply relative z-10 flex-none;
 }
 header#main_header nav#main_navbar {
