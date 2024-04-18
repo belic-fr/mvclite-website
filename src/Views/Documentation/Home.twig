@@ -1,0 +1,22 @@
+{% extends "Components/Layout.twig" %}
+
+{% block title %} Welcome {% endblock %}
+
+{% block css %}
+  {{ resource("Css/Layout/Views/Documentation/Home.css") }}
+{% endblock %}
+
+{% block slot %}
+
+  <aside id="left_side_slot">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias doloribus dolorum iusto neque qui quisquam
+    quo voluptate? Asperiores at consequatur corporis doloribus dolorum ducimus enim, ipsa, iusto nam quasi ullam!
+  </aside>
+
+  <main id="main_slot">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis deserunt eius esse et eum
+    ex excepturi, exercitationem hic laudantium magni modi mollitia nihil perferendis perspiciatis provident
+    quo velit voluptas!
+  </main>
+
+{% endblock %}
