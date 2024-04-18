@@ -2,11 +2,11 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.font-title, .logo {
+.font-title, .logo, #app > .slot-container > aside#left_side_slot > section.aside-section > header.section-header > .header-title > span.title-label {
   font-family: "Krona One", sans-serif;
 }
 
-.font-code {
+.font-code, #app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown {
   font-family: "JetBrains Mono", monospace;
 }
 
@@ -31,13 +31,13 @@ button.button-secondary {
   color: #1F1F1F;
 }
 
-a {
+a.html-link {
   color: #00D1FF !important;
 }
-a:hover {
+a.html-link:hover {
   opacity: 0.7;
 }
-a:active {
+a.html-link:active {
   opacity: 0.5;
 }
 
