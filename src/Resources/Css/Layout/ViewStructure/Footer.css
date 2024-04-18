@@ -2,11 +2,11 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.font-title {
+.font-title, #app > .slot-container > aside#left_side_slot > section.aside-section > header.section-header > .header-title > span.title-label {
   font-family: "Krona One", sans-serif;
 }
 
-.font-code {
+.font-code, #app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown {
   font-family: "JetBrains Mono", monospace;
 }
 
@@ -31,13 +31,13 @@ button.button-secondary {
   color: #1F1F1F;
 }
 
-a {
+a.html-link {
   color: #00D1FF !important;
 }
-a:hover {
+a.html-link:hover {
   opacity: 0.7;
 }
-a:active {
+a.html-link:active {
   opacity: 0.5;
 }
 
@@ -48,8 +48,84 @@ a:active {
   @apply flex-1 flex flex-col xl:flex-row;
 }
 #app > .slot-container > aside#left_side_slot {
-  @apply flex-none xl:w-96;
+  @apply flex-none xl:w-[450px] flex flex-col gap-y-16 px-10 py-8;
   background-color: #222222;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section {
+  @apply flex flex-col gap-y-3;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > header.section-header {
+  @apply flex items-center justify-between;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > header.section-header > .header-title {
+  @apply flex items-center gap-x-3;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > header.section-header > .header-title > ion-icon {
+  color: #00D1FF;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > header.section-header > .header-title > span.title-label {
+  @apply text-white;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > header.section-header > .header-caret {
+  @apply flex justify-end items-center;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > header.section-header > .header-caret > ion-icon {
+  color: #4B4B4B;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown {
+  @apply flex flex-col gap-y-2 pl-11;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element {
+  @apply flex flex-col gap-y-1.5;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element:not(:first-of-type) {
+  @apply border-t pt-2;
+  border-color: #282828;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > a:hover {
+  opacity: 0.7;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > a:active {
+  opacity: 0.5;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > a > header.element-header {
+  @apply flex flex-col gap-y-px;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > a > header.element-header > p.class-name {
+  @apply text-lg;
+  color: white !important;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > a > header.element-header > .class-information {
+  @apply text-sm flex flex-col gap-y-px;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > a > header.element-header > .class-information > p {
+  color: #4B4B4B;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > .element-components {
+  @apply flex flex-col gap-y-1;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > .element-components > a:hover {
+  opacity: 0.7;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > .element-components > a:active {
+  opacity: 0.5;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > .element-components > a .element-component {
+  @apply flex items-center gap-x-2;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > .element-components > a .element-component.component-active {
+  @apply border-l-4 pl-2;
+  border-color: #00D1FF;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > .element-components > a .element-component > p.component-visibility {
+  @apply text-sm;
+  color: #4B4B4B;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > .element-components > a .element-component > p.component-name {
+  color: #00D1FF;
+}
+#app > .slot-container > aside#left_side_slot > section.aside-section > .section-dropdown > .section-element > .element-components > a .element-component > p.component-name > span.component-type {
+  color: #FFFFFF;
 }
 #app > .slot-container > main#main_slot {
   @apply flex-1;
