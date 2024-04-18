@@ -22,13 +22,19 @@ $primary-button:        #0094FF
 
 //  Components
 button
-  @apply flex items-center gap-x-2
+  @apply flex items-center gap-x-2 transition-all
   padding: 12px 20px !important
   border-radius: 4px !important
   font-weight: 600 !important
 
+  &:hover
+    @apply cursor-pointer opacity-70
+
+  &:active
+    @apply scale-95 opacity-50
+
   &.button-primary
-    background-color: $primary-brand
+    background-color: $primary-button
     color: $secondary-brand
 
   &.button-secondary
