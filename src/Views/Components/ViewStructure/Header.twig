@@ -1,7 +1,9 @@
 <header id="main_header">
   <div class="brand-gradient"></div>
 
-  {% include "Components/Brands/MVCLite/NormalLogo.twig" %}
+  <a href="{{ route("home") }}">
+    {% include "Components/Brands/MVCLite/NormalLogo.twig" %}
+  </a>
 
   <nav id="main_navbar">
     <a class="link" href="#">
@@ -12,7 +14,7 @@
       </span>
     </a>
 
-    <a class="link" href="#">
+    <a class="link" href="{{ route("docs.home") }}">
       <ion-icon name="file-tray-full" size="large"></ion-icon>
 
       <span class="link-label">
