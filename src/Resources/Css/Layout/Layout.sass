@@ -59,8 +59,89 @@ a.html-link
     @apply flex-1 flex flex-col xl:flex-row
 
     > aside#left_side_slot
-      @apply flex-none xl:w-96
+      @apply flex-none xl:w-[450px] flex flex-col gap-y-16 px-10 py-8
       background-color: $secondary-background
+
+      > section.aside-section
+        @apply flex flex-col gap-y-3
+
+        > header.section-header
+          @apply flex items-center justify-between
+
+          > .header-title
+            @apply flex items-center gap-x-3
+
+            > ion-icon
+              color: $primary-brand
+
+            > span.title-label
+              @extend .font-title
+              @apply text-white
+
+          > .header-caret
+            @apply flex justify-end items-center
+
+            > ion-icon
+              color: $fontColor-brand
+
+        > .section-dropdown
+          @extend .font-code
+          @apply flex flex-col gap-y-2 pl-11
+
+          > .section-element
+            @apply flex flex-col gap-y-1.5
+
+            &:not(:first-of-type)
+              @apply border-t pt-2
+              border-color: $third-background
+
+            > a
+              &:hover
+                opacity: .7
+
+              &:active
+                opacity: .5
+
+              > header.element-header
+                @apply flex flex-col gap-y-px
+
+                > p.class-name
+                  @apply text-lg
+                  color: white !important
+
+                > .class-information
+                  @apply text-sm flex flex-col gap-y-px
+
+                  > p
+                    color: $fontColor-brand
+
+            > .element-components
+              @apply flex flex-col gap-y-1
+
+              > a
+                &:hover
+                  opacity: .7
+
+                &:active
+                  opacity: .5
+
+                .element-component
+                  @apply flex items-center gap-x-2
+
+                  &.component-active
+                    @apply border-l-4 pl-2
+                    border-color: $primary-brand
+
+                  > p
+                    &.component-visibility
+                      @apply text-sm
+                      color: $fontColor-brand
+
+                    &.component-name
+                      color: $primary-brand
+
+                      > span.component-type
+                        color: $secondary-brand
 
     > main#main_slot
       @apply flex-1
