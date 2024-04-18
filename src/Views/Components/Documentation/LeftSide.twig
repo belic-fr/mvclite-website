@@ -1,0 +1,53 @@
+<aside id="left_side_slot">
+  {% for section in delivery().get("sections") %}
+  <section id="section_1" class="aside-section">
+    <header class="section-header">
+      <div class="header-title">
+        <ion-icon name="cog-outline" size="large"></ion-icon>
+        <span class="title-label">
+          Controllers
+        </span>
+      </div>
+
+      <div class="header-caret">
+        <ion-icon name="caret-down-outline"></ion-icon>
+      </div>
+    </header>
+
+    <div class="section-dropdown">
+        <div class="section-element">
+          <a href="#">
+            <header class="element-header">
+              <p class="class-name">
+                ThisIsABeautifulClass&lt;T&gt;
+              </p>
+
+              <div class="class-information">
+                <p>
+                  1 attributes
+                  ·
+                  1 methods
+                </p>
+              </div>
+            </header>
+          </a>
+
+          <div class="element-components">
+            <a href="#">
+              <div class="element-component">
+                <p class="component-visibility">
+                  +
+                </p>
+
+                <p class="component-name">
+                  $attribute<span class="component-type">: type1</span>
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+    </div>
+  </section>
+  {% endfor %}
+
+</aside>
